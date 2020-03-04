@@ -1,12 +1,14 @@
-module.exports=function(grunt){
+module.exports = function (grunt) {
   grunt.initConfig({
-      less:{
-        compile:{
-          files:{'dist/compiled.css':'css/*.less' }
-        }
+    concat: {
+      js: {
+        src: ['rectangle.js', 'calc.js'],
+        dest: 'dist/bundle.js'
       }
-      });
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.registerTask('default',['less:compile']);
+    }
+  });
 
+  grunt.loadNpmTasks('grunt-contrib-concat');
+
+  grunt.registerTask('default', ['concat']);
 };
